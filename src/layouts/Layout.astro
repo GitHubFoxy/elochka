@@ -1,0 +1,275 @@
+---
+import Info from '../components/info.astro'
+const { page } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Astro v4.7.1">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://unpkg.com/htmx.org@1.9.12"
+		integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+		crossorigin="anonymous"></script>
+	<title>Ёлочки</title>
+</head>
+
+<body class="bg-slate-100">
+	<header class="bg-white fixed z-20 w-full ">
+		<div class="flex justify-between items-center container mx-auto">
+			<div class="flex gap-2 items-center"> <svg class="w-4" viewBox="0 0 16 16" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+						d="M2.41582 0.558309L0.736602 2.03462L0.682656 2.0886C-0.0898041 2.86163 -0.0470871 4.0003 0.0562941 4.71029C0.171698 5.50287 0.441124 6.26295 0.595156 6.6686L0.598237 6.67671L0.601456 6.68477C1.33972 8.5318 2.56957 10.372 4.08933 11.8929C6.1375 13.9426 8.20881 14.9592 9.30011 15.386C9.82149 15.5915 10.9545 16 12.0145 16C12.6061 16 13.3649 15.8728 13.9196 15.3177L13.9736 15.2637L15.4491 13.5829C16.2557 12.7019 16.1438 11.3196 15.3352 10.5104L15.2487 10.4239L13.1557 8.75452C12.3107 8.01682 11.0071 8.00851 10.1716 8.84468L10.1689 8.84736C10.1553 8.86092 10.118 8.89807 10.0813 8.94009C10.0522 8.97341 10.0016 9.03386 9.95129 9.11697L9.91066 9.17796C9.53177 8.90726 8.99184 8.45886 8.27296 7.73945C7.55322 7.01918 7.10491 6.4784 6.83448 6.09912L6.89636 6.05783C6.97953 6.00742 7.04 5.95671 7.07328 5.92757C7.11522 5.89084 7.15234 5.85357 7.16583 5.84003L7.1685 5.83735C7.9864 5.01884 8.0288 3.71189 7.25374 2.84692L5.59053 0.758516L5.50407 0.671981C5.10958 0.277202 4.60859 0.0623617 4.08738 0.0102026L4.07841 0.00930485C3.47607 -0.045494 2.86882 0.142266 2.41582 0.558309ZM3.8932 2.00078C3.99119 2.0115 4.04894 2.04525 4.08933 2.08567L4.09616 2.09251L5.73432 4.14947L5.76094 4.17801C5.82043 4.24179 5.82688 4.33292 5.7707 4.40458L4.40992 5.31246L4.54922 5.97463C4.62286 6.32469 4.84247 6.74341 5.17446 7.21564C5.52516 7.71448 6.05957 8.35389 6.85822 9.15314C7.65687 9.95238 8.29583 10.4872 8.79436 10.8382C9.26623 11.1704 9.68483 11.3903 10.035 11.4641L10.6978 11.6037L11.6045 10.2427C11.6654 10.1978 11.7624 10.1909 11.843 10.2635L11.8653 10.2835L13.9135 11.9172L13.9204 11.9241C13.9649 11.9686 13.9968 12.0378 14.0002 12.1154C14.0036 12.1944 13.977 12.2291 13.9734 12.2329L13.9636 12.2435L12.5132 13.8956L12.5049 13.904C12.5049 13.904 12.4984 13.9104 12.4825 13.9194C12.4661 13.9287 12.4389 13.9413 12.3975 13.954C12.3115 13.9802 12.1849 14 12.0145 14C11.3642 14 10.5382 13.7243 10.0323 13.5248L10.0297 13.5238C9.1295 13.1719 7.3128 12.2893 5.50407 10.4792C4.16388 9.13805 3.09285 7.52565 2.46181 5.95047C2.32041 5.5773 2.11775 4.98753 2.03542 4.42212C1.94047 3.76999 2.06096 3.53875 2.09739 3.50229L2.10561 3.49406L3.75717 2.04207L3.76817 2.0318C3.7803 2.02047 3.81939 1.99508 3.8932 2.00078Z">
+					</path>
+				</svg> <a href="tel:+7987654-21-21">+1 1234 12-12-12</a> </div>
+			<div class="flex items-center gap-4"> <a href="https://wa.me/+79635715010" class="flex gap-2"> <svg
+						class="w-4 hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+						<defs></defs>
+						<path fill="currentColor"
+							d="M22.41 18.78a58.6 58.6 0 00-2.38-1.13c-.32-.11-.55-.17-.78.18-.23.34-.9 1.12-1.1 1.35-.2.23-.41.25-.76.1-.35-.19-1.47-.55-2.8-1.74a10.42 10.42 0 01-1.94-2.42c-.2-.35-.02-.54.16-.72.15-.15.35-.4.52-.6.17-.22.23-.36.35-.58.11-.25.06-.44-.03-.62-.09-.17-.79-1.89-1.08-2.57-.27-.68-.57-.6-.78-.6l-.67-.01c-.23 0-.6.09-.93.42-.31.35-1.22 1.19-1.22 2.88 0 1.7 1.25 3.35 1.42 3.6.18.22 2.46 3.72 5.96 5.23.83.35 1.48.56 1.98.73.84.26 1.6.23 2.2.14.66-.1 2.06-.84 2.35-1.66.3-.83.3-1.51.21-1.67-.08-.16-.31-.24-.66-.4l-.02.09zm-6.34 8.6h-.02a11.7 11.7 0 01-5.9-1.61l-.42-.25-4.37 1.13 1.17-4.25-.28-.44a11.52 11.52 0 019.83-17.67c3.1 0 6 1.21 8.2 3.4a11.42 11.42 0 013.4 8.16c-.02 6.34-5.21 11.53-11.6 11.53zm9.87-21.36A14.17 14.17 0 0016.05 2 13.93 13.93 0 002.12 15.88c0 2.44.64 4.82 1.86 6.93L2 30l7.4-1.93A13.93 13.93 0 0030 15.87c0-3.7-1.44-7.18-4.08-9.8l.02-.05z">
+						</path>
+					</svg>
+					<p>WhatsApp</p>
+				</a>
+				<div id="feedback_toggle"
+					class="select-none flex gap-2 items-center hover:cursor-pointer uppercase text-sm"> <svg class="w-4"
+						xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+						<defs></defs>
+						<path fill="currentColor" fill-rule="evenodd"
+							d="M2 2h12a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V4c0-1.1.9-2 2-2zm0 5v5h12V6.9L8 10 2 7zm0-2l6 3 6-3V4H2v1z"
+							clip-rule="evenodd"></path>
+					</svg>
+					<p>заявка на подключение</p>
+				</div>	
+				<dialog id="feedback_dialog" class="relative w-[750px] p-4 px-8"> <span
+						class="absolute top-5 right-5 hover:cursor-pointer" id="close_feedback_modal">X</span>
+					<h1 class="text-xl uppercase font-bold text-center my-4">
+						заявка на подключение
+					</h1>
+					<form class="flex flex-col gap-4"> <input name="email" type="email" required
+							class="p-4 border rounded" placeholder="E-mail"> <input name="name" type="text" required
+							class="p-4 border rounded" placeholder="Ваше имя"> <input name="address" type="text"
+							required class="p-4 border rounded" placeholder="Ваш адрес"> <input name="phone" type="text"
+							required class="p-4 border rounded" placeholder="Контактный телефон"> <textarea
+							name="message" id="" placeholder="Ваше сообщение" class="p-4 border rounded"></textarea>
+						<label class="hover:cursor-pointer flex items-center gap-2"> <input type="checkbox" required
+								class="p-2 rounded"> <span>Нажимая кнопку отправить вы соглашаетесь на обработку Ваших
+								персональных данных.</span> </label>
+						<div class="flex justify-between">
+							<button type="reset" onclick="document.querySelector('#feedback_dialog').close()"
+								class="py-2 px-4 rounded border border-orange-500 text-orange-500 hover:text-white hover:bg-orange-500 transition-all">
+								Отмена
+							</button>
+							<button type="submit" hx-post="/backend/connectionRequest.php"
+								class="py-2 px-4 rounded border border-orange-500 text-white bg-orange-500 hover:bg-transparent hover:text-orange-500 transition-colors">
+								Отправить
+							</button>
+						</div>
+					</form>
+				</dialog>
+				<div id="callback_toggle"
+					class="select-none flex gap-2 items-center hover:cursor-pointer uppercase text-sm"> <svg class="w-4"
+						id="callback_icon" width="50" height="50" data-name="callback icon"
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
+						<title>callback_icon</title>
+						<path fill="currentColor"
+							d="M17.88,1.5a10.32,10.32,0,0,0-1-1A1.45,1.45,0,0,0,16,0a2,2,0,0,0-1,.48,7.38,7.38,0,0,0-1.22,1.14A5.06,5.06,0,0,0,12.91,3,0.89,0.89,0,0,0,13,4a4.35,4.35,0,0,0,1.38,1A1,1,0,0,1,15,6a2.35,2.35,0,0,1-.62,1.5Q13.75,8.25,13,9t-1.5,1.38A2.35,2.35,0,0,1,10,11a1,1,0,0,1-1-.63A4.35,4.35,0,0,0,8,9a0.89,0.89,0,0,0-1-.09,5.06,5.06,0,0,0-1.33.84A7.37,7.37,0,0,0,4.48,11,2,2,0,0,0,4,12a1.45,1.45,0,0,0,.47.89,10.36,10.36,0,0,0,1,1Q6.06,14.34,7,15a6,6,0,0,0,1.82-.35,16.1,16.1,0,0,0,2.2-.92,19.94,19.94,0,0,0,2.19-1.28A12,12,0,0,0,15,11a12.05,12.05,0,0,0,1.45-1.79A20,20,0,0,0,17.73,7a16,16,0,0,0,.92-2.2A6,6,0,0,0,19,3Q18.34,2.06,17.88,1.5ZM6,6L9,3,6,0V2H1V4H6V6Z"
+							transform="translate(-1)"></path>
+					</svg>
+					<p>заказать звонок</p>
+				</div>
+				<dialog id="callback_dialog" class="relative w-[750w] p-4 px-8"> <span
+						class="absolute top-5 right-5 hover:cursor-pointer" id="close_callback_modal">X</span>
+					<h1 class="text-xl uppercase font-bold text-center my-4">
+						ЗАКАЗАТЬ ЗВОНОК
+					</h1>
+					<form class="flex flex-col gap-4">
+						<input type="text" name="email" required class="p-4 border rounded" placeholder="E-mail">
+						<input type="text" name="name" required class="p-4 border rounded" placeholder="Ваше имя">
+						<input type="text" name="address" required class="p-4 border rounded" placeholder="Ваш адрес"> 
+						<input type="text" name="phone" required
+							class="p-4 border rounded" placeholder="Контактный телефон"> 
+							<textarea name="message" id=""
+							placeholder="Ваше сообщение" class="p-4 border rounded"></textarea> 
+							<label
+							class="hover:cursor-pointer flex items-center gap-2"> 
+							<input type="checkbox" required
+								class="p-2 rounded"> 
+								<span>Нажимая кнопку отправить вы соглашаетесь на обработку Ваших
+								персональных данных.</span> 
+							</label>
+						<div class="flex justify-between"> <button
+								onclick="document.querySelector('#callback_dialog').close()"
+								class="py-2 px-4 rounded border border-orange-500 text-orange-500 hover:text-white hover:bg-orange-500 transition-all">
+								Отмена
+							</button> <button type="submit" hx-post="/backend/callbackRequest.php"
+								class="py-2 px-4 rounded border border-orange-500 text-white bg-orange-500 hover:bg-transparent hover:text-orange-500 transition-colors">
+								Отправить
+							</button> </div>
+					</form>
+				</dialog>
+				<script>
+					const close_callback_modal = document.getElementById("close_callback_modal")
+					close_callback_modal?.addEventListener("click", () => {
+						const dialog = document.getElementById("callback_dialog")
+						dialog.close()
+					})
+					const callback_toggle = document.getElementById("callback_toggle")
+					callback_toggle?.addEventListener("click", () => {
+						const dialog = document.getElementById("callback_dialog")
+						dialog.showModal()
+					})
+					const feedback_toggle = document.getElementById("feedback_toggle")
+					feedback_toggle?.addEventListener("click", () => {
+						const dialog = document.getElementById("feedback_dialog")
+						dialog.showModal()
+					})
+					const close_feedback_modal = document.getElementById("close_feedback_modal")
+					close_feedback_modal?.addEventListener("click", () => {
+						const dialog = document.getElementById("feedback_dialog")
+						dialog.close()
+					})
+				</script>
+			</div>
+		</div>
+		<hr>
+		<nav class="flex container justify-between mx-auto items-center p-2">
+			<div><svg width="148" height="66" viewBox="0 0 148 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="148" height="66" fill=""></rect>
+					<rect width="148" height="66" fill=""></rect>
+					<path d="M12 22.5L25.5 0L39.5 22.5H32.5L46 44.5H45H38L51.5 66H0L12 44.5H5.5L18.5 22.5H12Z"
+						fill="#FF4000"></path>
+					<path
+						d="M57.416 32.712H66.296V34.224H57.416V32.712ZM57.608 40.464H67.712V42H55.832V25.2H67.352V26.736H57.608V40.464ZM63.752 23.28C63.48 23.28 63.24 23.184 63.032 22.992C62.824 22.8 62.72 22.552 62.72 22.248C62.72 21.944 62.824 21.696 63.032 21.504C63.24 21.312 63.48 21.216 63.752 21.216C64.04 21.216 64.28 21.312 64.472 21.504C64.68 21.696 64.784 21.944 64.784 22.248C64.784 22.552 64.68 22.8 64.472 22.992C64.28 23.184 64.04 23.28 63.752 23.28ZM59.48 23.28C59.192 23.28 58.944 23.184 58.736 22.992C58.544 22.8 58.448 22.552 58.448 22.248C58.448 21.944 58.544 21.696 58.736 21.504C58.944 21.312 59.192 21.216 59.48 21.216C59.752 21.216 59.992 21.312 60.2 21.504C60.408 21.696 60.512 21.944 60.512 22.248C60.512 22.552 60.408 22.8 60.2 22.992C59.992 23.184 59.752 23.28 59.48 23.28ZM68.9403 41.976L69.0603 40.512C69.1723 40.528 69.2763 40.552 69.3723 40.584C69.4843 40.6 69.5803 40.608 69.6603 40.608C70.1723 40.608 70.5803 40.416 70.8843 40.032C71.2043 39.648 71.4443 39.136 71.6043 38.496C71.7643 37.856 71.8763 37.136 71.9403 36.336C72.0043 35.52 72.0603 34.704 72.1083 33.888L72.3243 29.4H81.5643V42H79.8603V30.384L80.2923 30.888H73.4283L73.8363 30.36L73.6443 34.008C73.5963 35.096 73.5083 36.136 73.3803 37.128C73.2683 38.12 73.0843 38.992 72.8283 39.744C72.5883 40.496 72.2523 41.088 71.8203 41.52C71.3883 41.936 70.8363 42.144 70.1643 42.144C69.9723 42.144 69.7723 42.128 69.5643 42.096C69.3723 42.064 69.1643 42.024 68.9403 41.976ZM91.5924 42.12C90.3764 42.12 89.2804 41.848 88.3044 41.304C87.3444 40.744 86.5844 39.984 86.0244 39.024C85.4644 38.048 85.1844 36.936 85.1844 35.688C85.1844 34.424 85.4644 33.312 86.0244 32.352C86.5844 31.392 87.3444 30.64 88.3044 30.096C89.2644 29.552 90.3604 29.28 91.5924 29.28C92.8404 29.28 93.9444 29.552 94.9044 30.096C95.8804 30.64 96.6404 31.392 97.1844 32.352C97.7444 33.312 98.0244 34.424 98.0244 35.688C98.0244 36.936 97.7444 38.048 97.1844 39.024C96.6404 39.984 95.8804 40.744 94.9044 41.304C93.9284 41.848 92.8244 42.12 91.5924 42.12ZM91.5924 40.608C92.5044 40.608 93.3124 40.408 94.0164 40.008C94.7204 39.592 95.2724 39.016 95.6724 38.28C96.0884 37.528 96.2964 36.664 96.2964 35.688C96.2964 34.696 96.0884 33.832 95.6724 33.096C95.2724 32.36 94.7204 31.792 94.0164 31.392C93.3124 30.976 92.5124 30.768 91.6164 30.768C90.7204 30.768 89.9204 30.976 89.2164 31.392C88.5124 31.792 87.9524 32.36 87.5364 33.096C87.1204 33.832 86.9124 34.696 86.9124 35.688C86.9124 36.664 87.1204 37.528 87.5364 38.28C87.9524 39.016 88.5124 39.592 89.2164 40.008C89.9204 40.408 90.7124 40.608 91.5924 40.608ZM109.634 36.672C108.898 36.992 108.154 37.248 107.402 37.44C106.666 37.616 105.93 37.704 105.194 37.704C103.706 37.704 102.53 37.368 101.666 36.696C100.802 36.008 100.37 34.952 100.37 33.528V29.4H102.05V33.432C102.05 34.392 102.362 35.112 102.986 35.592C103.61 36.072 104.45 36.312 105.506 36.312C106.146 36.312 106.818 36.232 107.522 36.072C108.226 35.896 108.938 35.648 109.658 35.328L109.634 36.672ZM109.49 42V29.4H111.194V42H109.49ZM125.273 42L120.089 35.76L121.505 34.92L127.289 42H125.273ZM116.033 42V29.4H117.737V42H116.033ZM117.209 36.384V34.92H121.265V36.384H117.209ZM121.649 35.88L120.065 35.64L125.081 29.4H126.929L121.649 35.88ZM137.568 42V39.216L137.496 38.76V34.104C137.496 33.032 137.192 32.208 136.584 31.632C135.992 31.056 135.104 30.768 133.92 30.768C133.104 30.768 132.328 30.904 131.592 31.176C130.856 31.448 130.232 31.808 129.72 32.256L128.952 30.984C129.592 30.44 130.36 30.024 131.256 29.736C132.152 29.432 133.096 29.28 134.088 29.28C135.72 29.28 136.976 29.688 137.856 30.504C138.752 31.304 139.2 32.528 139.2 34.176V42H137.568ZM133.224 42.12C132.28 42.12 131.456 41.968 130.752 41.664C130.064 41.344 129.536 40.912 129.168 40.368C128.8 39.808 128.616 39.168 128.616 38.448C128.616 37.792 128.768 37.2 129.072 36.672C129.392 36.128 129.904 35.696 130.608 35.376C131.328 35.04 132.288 34.872 133.488 34.872H137.832V36.144H133.536C132.32 36.144 131.472 36.36 130.992 36.792C130.528 37.224 130.296 37.76 130.296 38.4C130.296 39.12 130.576 39.696 131.136 40.128C131.696 40.56 132.48 40.776 133.488 40.776C134.448 40.776 135.272 40.56 135.96 40.128C136.664 39.68 137.176 39.04 137.496 38.208L137.88 39.384C137.56 40.216 137 40.88 136.2 41.376C135.416 41.872 134.424 42.12 133.224 42.12Z"
+						fill="black"></path>
+				</svg></div>
+			<div>
+				<ul class="uppercase text-xs flex gap-4 items-center"> 
+					<a href="/"
+						class=`hover:cursor-pointer hover:underline underline-offset-4 ${page == 1 && "underline"}`>главная</a> 
+						<a href="/internet"
+						class=`hover:cursor-pointer hover:underline underline-offset-4 ${page == 2 && "underline"}`>интернет и тв</a> 
+						 <a href="/faq"
+						class=`hover:cursor-pointer hover:underline underline-offset-4 ${page == 3 && "underline"}`>вопросы? ответы</a>
+						<a href="/jobs"
+						class=`hover:cursor-pointer hover:underline underline-offset-4 ${page == 4 && "underline"}`>вакансии</a> 
+						<a href="/contacts"
+						class=`hover:cursor-pointer hover:underline underline-offset-4 ${page == 5 && "underline"}`>контакты</a>
+					 </ul>
+			</div>
+			<div>
+				<form action="/shoppingcart" id="cart" class="hidden absolute right-24 rounded top-[142px] p-4 min-w-[164px] bg-slate-200">
+				<p id="empty" class="text-center ">Корзина пуста</p>
+					<div id="items" class="hidden">
+						<div class="flex p-4 gap-4 items-center justify-between ">
+							<div class='gap-2 items-center flex'>
+								<input id="hidden_id" class="hidden" name="id"></input>
+								<img id="inside_cart_img" class="w-[50px] " src="" alt="" >
+								<p class="" id="inside_cart_title"></p>
+							</div>
+							<div  class="flex gap-4">
+								<input type="number" class="w-16 h-10 p-2 rounded  " value="1">
+								<svg id="delete_from_cart" class=" w-6 hover:cursor-pointer rounded select-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><path d="M21 6h-5V4.3A2.4 2.4 0 0013.5 2h-3A2.4 2.4 0 008 4.3V6H3a1 1 0 100 2h1v11a3 3 0 003 3h10a3 3 0 003-3V8h1a1 1 0 100-2zM10 4.3c0-.1.2-.3.5-.3h3c.3 0 .5.2.5.3V6h-4V4.3zM18 19a1 1 0 01-1 1H7a1 1 0 01-1-1V8h12v11z"></path></svg>
+							</div>
+						</div>
+						<hr id="hr" class="border-[rgba(0,0,0,0.3)] w-full " >
+						<div id="card_buttons" class="flex justify-between gap-2 p-4 items-center">
+							<div  id="continue_shopping" class="hover:cursor-pointer py-2 px-4  rounded text-orange-600 border  border-orange-600 hover:bg-orange-600 transition-colors hover:text-white">
+								Продолжить покупки
+							</div>
+							<button type="submit" class=" py-2 px-4 bg-orange-600 rounded text-white border border-transparent transition-colors hover:bg-transparent hover:text-black hover:border-black">
+								Оформить заказ
+							</button>
+						</div>
+					</div>
+				</form>
+				<div id="outside_cart" class="flex gap-2 items-center border p-4 py-3 rounded hover:cursor-pointer hover:bg-slate-100 transition-colors relative"> 
+					<svg width="16"
+						height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M0 1C0 0.447715 0.447715 0 1 0H3C3.4687 0 3.87451 0.325532 3.97619 0.78307L5.80217 9H12.2792L13.6126 5H7C6.44772 5 6 4.55228 6 4C6 3.44772 6.44772 3 7 3H15C15.3214 3 15.6233 3.15452 15.8112 3.41529C15.9992 3.67606 16.0503 4.01128 15.9487 4.31623L13.9487 10.3162C13.8126 10.7246 13.4304 11 13 11H5C4.5313 11 4.12549 10.6745 4.02381 10.2169L2.19783 2H1C0.447715 2 0 1.55228 0 1Z">
+						</path>
+						<path
+							d="M15 14C15 15.1046 14.1046 16 13 16C11.8954 16 11 15.1046 11 14C11 12.8954 11.8954 12 13 12C14.1046 12 15 12.8954 15 14Z">
+						</path>
+						<path
+							d="M5 16C6.10457 16 7 15.1046 7 14C7 12.8954 6.10457 12 5 12C3.89543 12 3 12.8954 3 14C3 15.1046 3.89543 16 5 16Z">
+						</path>
+					</svg>
+					<p id="count_for_cart" class="px-3">0</p> 
+					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"
+						fill="currentColor" viewBox="0 0 12 6">
+					<path d="M6 6l5.2-6H.8L6 6z"></path>
+					</svg>
+				</div>
+				<script is:inline>
+					const items = document.querySelector("#items")
+					const empty = document.querySelector("#empty")
+					const hidden_id = document.querySelector("#hidden_id")
+
+					const inside_cart_img = document.querySelector("#inside_cart_img")
+					const inside_cart_title = document.querySelector("#inside_cart_title")
+
+					const outside_cart = document.querySelector("#outside_cart")
+					const cart = document.querySelector("#cart")
+					const delete_from_cart = document.querySelector("#delete_from_cart")
+					const continue_shopping = document.querySelector("#continue_shopping")
+					const count_for_cart = document.querySelector("#count_for_cart")
+
+					
+					
+					continue_shopping.addEventListener("click", () => {
+						cart.classList.toggle('hidden')
+						inside_cart_img.src = localStorage.getItem("item_imgPath")
+					})
+
+					delete_from_cart.addEventListener("click", () => {
+						localStorage.removeItem("item_imgPath")
+						localStorage.removeItem("item_title")
+						check_local_storage()
+						empty.classList.remove('hidden')
+						items.classList.add('hidden')
+					})
+					outside_cart.addEventListener("click", () => {
+						cart.classList.toggle('hidden')
+					})
+
+					function check_local_storage() {
+					 inside_cart_title.innerHTML = localStorage.getItem("item_title")
+					 inside_cart_img.src = 	localStorage.getItem('item_imgPath')
+					}
+
+
+
+				</script>
+
+
+			</div>
+		</nav>
+	</header>
+	<slot/>
+	<footer>
+		<section id="footer" class="w-full h-[120px] bg-black ">
+			<div class="flex justify-between items-center h-full container mx-auto">
+				<div>
+					<p class="text-white max-w-[25ch]">2015-2024 © Ёлочка
+						Надежный интернет в Вашем загородном доме
+					</p>
+				</div> <svg width="148" height="66" viewBox="0 0 148 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="148" height="66" fill=""></rect>
+					<rect width="148" height="66" fill=""></rect>
+					<path d="M12 22.5L25.5 0L39.5 22.5H32.5L46 44.5H45H38L51.5 66H0L12 44.5H5.5L18.5 22.5H12Z"
+						fill="#FF4000"></path>
+					<path
+						d="M57.416 32.712H66.296V34.224H57.416V32.712ZM57.608 40.464H67.712V42H55.832V25.2H67.352V26.736H57.608V40.464ZM63.752 23.28C63.48 23.28 63.24 23.184 63.032 22.992C62.824 22.8 62.72 22.552 62.72 22.248C62.72 21.944 62.824 21.696 63.032 21.504C63.24 21.312 63.48 21.216 63.752 21.216C64.04 21.216 64.28 21.312 64.472 21.504C64.68 21.696 64.784 21.944 64.784 22.248C64.784 22.552 64.68 22.8 64.472 22.992C64.28 23.184 64.04 23.28 63.752 23.28ZM59.48 23.28C59.192 23.28 58.944 23.184 58.736 22.992C58.544 22.8 58.448 22.552 58.448 22.248C58.448 21.944 58.544 21.696 58.736 21.504C58.944 21.312 59.192 21.216 59.48 21.216C59.752 21.216 59.992 21.312 60.2 21.504C60.408 21.696 60.512 21.944 60.512 22.248C60.512 22.552 60.408 22.8 60.2 22.992C59.992 23.184 59.752 23.28 59.48 23.28ZM68.9403 41.976L69.0603 40.512C69.1723 40.528 69.2763 40.552 69.3723 40.584C69.4843 40.6 69.5803 40.608 69.6603 40.608C70.1723 40.608 70.5803 40.416 70.8843 40.032C71.2043 39.648 71.4443 39.136 71.6043 38.496C71.7643 37.856 71.8763 37.136 71.9403 36.336C72.0043 35.52 72.0603 34.704 72.1083 33.888L72.3243 29.4H81.5643V42H79.8603V30.384L80.2923 30.888H73.4283L73.8363 30.36L73.6443 34.008C73.5963 35.096 73.5083 36.136 73.3803 37.128C73.2683 38.12 73.0843 38.992 72.8283 39.744C72.5883 40.496 72.2523 41.088 71.8203 41.52C71.3883 41.936 70.8363 42.144 70.1643 42.144C69.9723 42.144 69.7723 42.128 69.5643 42.096C69.3723 42.064 69.1643 42.024 68.9403 41.976ZM91.5924 42.12C90.3764 42.12 89.2804 41.848 88.3044 41.304C87.3444 40.744 86.5844 39.984 86.0244 39.024C85.4644 38.048 85.1844 36.936 85.1844 35.688C85.1844 34.424 85.4644 33.312 86.0244 32.352C86.5844 31.392 87.3444 30.64 88.3044 30.096C89.2644 29.552 90.3604 29.28 91.5924 29.28C92.8404 29.28 93.9444 29.552 94.9044 30.096C95.8804 30.64 96.6404 31.392 97.1844 32.352C97.7444 33.312 98.0244 34.424 98.0244 35.688C98.0244 36.936 97.7444 38.048 97.1844 39.024C96.6404 39.984 95.8804 40.744 94.9044 41.304C93.9284 41.848 92.8244 42.12 91.5924 42.12ZM91.5924 40.608C92.5044 40.608 93.3124 40.408 94.0164 40.008C94.7204 39.592 95.2724 39.016 95.6724 38.28C96.0884 37.528 96.2964 36.664 96.2964 35.688C96.2964 34.696 96.0884 33.832 95.6724 33.096C95.2724 32.36 94.7204 31.792 94.0164 31.392C93.3124 30.976 92.5124 30.768 91.6164 30.768C90.7204 30.768 89.9204 30.976 89.2164 31.392C88.5124 31.792 87.9524 32.36 87.5364 33.096C87.1204 33.832 86.9124 34.696 86.9124 35.688C86.9124 36.664 87.1204 37.528 87.5364 38.28C87.9524 39.016 88.5124 39.592 89.2164 40.008C89.9204 40.408 90.7124 40.608 91.5924 40.608ZM109.634 36.672C108.898 36.992 108.154 37.248 107.402 37.44C106.666 37.616 105.93 37.704 105.194 37.704C103.706 37.704 102.53 37.368 101.666 36.696C100.802 36.008 100.37 34.952 100.37 33.528V29.4H102.05V33.432C102.05 34.392 102.362 35.112 102.986 35.592C103.61 36.072 104.45 36.312 105.506 36.312C106.146 36.312 106.818 36.232 107.522 36.072C108.226 35.896 108.938 35.648 109.658 35.328L109.634 36.672ZM109.49 42V29.4H111.194V42H109.49ZM125.273 42L120.089 35.76L121.505 34.92L127.289 42H125.273ZM116.033 42V29.4H117.737V42H116.033ZM117.209 36.384V34.92H121.265V36.384H117.209ZM121.649 35.88L120.065 35.64L125.081 29.4H126.929L121.649 35.88ZM137.568 42V39.216L137.496 38.76V34.104C137.496 33.032 137.192 32.208 136.584 31.632C135.992 31.056 135.104 30.768 133.92 30.768C133.104 30.768 132.328 30.904 131.592 31.176C130.856 31.448 130.232 31.808 129.72 32.256L128.952 30.984C129.592 30.44 130.36 30.024 131.256 29.736C132.152 29.432 133.096 29.28 134.088 29.28C135.72 29.28 136.976 29.688 137.856 30.504C138.752 31.304 139.2 32.528 139.2 34.176V42H137.568ZM133.224 42.12C132.28 42.12 131.456 41.968 130.752 41.664C130.064 41.344 129.536 40.912 129.168 40.368C128.8 39.808 128.616 39.168 128.616 38.448C128.616 37.792 128.768 37.2 129.072 36.672C129.392 36.128 129.904 35.696 130.608 35.376C131.328 35.04 132.288 34.872 133.488 34.872H137.832V36.144H133.536C132.32 36.144 131.472 36.36 130.992 36.792C130.528 37.224 130.296 37.76 130.296 38.4C130.296 39.12 130.576 39.696 131.136 40.128C131.696 40.56 132.48 40.776 133.488 40.776C134.448 40.776 135.272 40.56 135.96 40.128C136.664 39.68 137.176 39.04 137.496 38.208L137.88 39.384C137.56 40.216 137 40.88 136.2 41.376C135.416 41.872 134.424 42.12 133.224 42.12Z"
+						fill="white"></path>
+				</svg>
+			</div>
+		</section>
+	</footer>
+</body>
+
+</html>
