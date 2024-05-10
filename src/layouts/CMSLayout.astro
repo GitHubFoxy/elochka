@@ -1,0 +1,32 @@
+---
+const {title, who} = Astro.props
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://unpkg.com/htmx.org@1.9.12"
+		integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+		crossorigin="anonymous"></script>
+        <title>{title}</title>
+    </head>
+    <body class="">
+        <section class="h-[15vh] flex items-center justify-center bg-orange-500 ">
+            <h1 class="text-white text-center text-4xl font-bold">{who}</h1>
+        </section>
+       <section id="menu" class="fixed flex flex-col justify-between w-72 bg-orange-300 min-h-[calc(100vh-15vh)]">
+        <div>
+            <h1 class="text-center py-4 text-orange-800">Меню навигации
+                <hr class="mt-4"></h1>
+                <div class="text-center">
+                    <p class="transition-colors hover:cursor-pointer bg-orange-400 py-4 rounded">Главная</p>
+                </div>
+        </div>
+        <p class="text-center bg-black text-white py-6 text-sm">property of elochka</p>
+       </section>
+       <slot/>
+    </body>
+</html>

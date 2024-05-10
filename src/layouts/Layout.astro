@@ -1,8 +1,6 @@
 ---
-import Info from '../components/info.astro'
 const { page } = Astro.props
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,25 +109,29 @@ const { page } = Astro.props
 							</button> </div>
 					</form>
 				</dialog>
-				<script>
+				<script is:inline>
 					const close_callback_modal = document.getElementById("close_callback_modal")
 					close_callback_modal?.addEventListener("click", () => {
 						const dialog = document.getElementById("callback_dialog")
+						// @ts-ignore
 						dialog.close()
 					})
 					const callback_toggle = document.getElementById("callback_toggle")
 					callback_toggle?.addEventListener("click", () => {
 						const dialog = document.getElementById("callback_dialog")
+						// @ts-ignore
 						dialog.showModal()
 					})
 					const feedback_toggle = document.getElementById("feedback_toggle")
 					feedback_toggle?.addEventListener("click", () => {
 						const dialog = document.getElementById("feedback_dialog")
+						// @ts-ignore
 						dialog.showModal()
 					})
 					const close_feedback_modal = document.getElementById("close_feedback_modal")
 					close_feedback_modal?.addEventListener("click", () => {
 						const dialog = document.getElementById("feedback_dialog")
+						// @ts-ignore
 						dialog.close()
 					})
 				</script>
@@ -208,7 +210,7 @@ const { page } = Astro.props
 				<script is:inline>
 					const items = document.querySelector("#items")
 					const empty = document.querySelector("#empty")
-					const hidden_id = document.querySelector("#hidden_id")
+					// const hidden_id = document.querySelector("#hidden_id")
 
 					const inside_cart_img = document.querySelector("#inside_cart_img")
 					const inside_cart_title = document.querySelector("#inside_cart_title")
@@ -217,7 +219,7 @@ const { page } = Astro.props
 					const cart = document.querySelector("#cart")
 					const delete_from_cart = document.querySelector("#delete_from_cart")
 					const continue_shopping = document.querySelector("#continue_shopping")
-					const count_for_cart = document.querySelector("#count_for_cart")
+					// const count_for_cart = document.querySelector("#count_for_cart")
 
 					
 					

@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout page="2">
+<main class="pt-[133px]" >
+    <section class=" bg-orange-600 w-full h-52 grid place-content-center">
+        <h1 class="text-center text-white text-4xl font-bold uppercase" >Корзина</h1>
+    </section>
+    <section >
+    <div class="flex gap-6 justify-center py-4">
+        <div id="korzina" class="flex gap-2 justify-center items-center"><span class="rounded-full bg-black text-white w-6 h-6 flex items-center justify-center">1</span><p>Корзина</p></div>
+        <div id="contacts" class="flex gap-2 justify-center items-center opacity-45"><span class="rounded-full bg-black text-white w-6 h-6 flex items-center justify-center">2</span><p>Контакты</p></div>
+    </div>
+    <hr>
+    <div id="first_stage" class="flex flex-col p-4">
+            <div class="flex container mx-auto justify-between">
+                <p class="font-semibold">Товар</p>
+                <div class="flex gap-12">
+                    <p class="font-semibold">Количество</p>
+                    <p class="font-semibold">Стоимость</p>
+                    <p class="font-semibold"></p>
+                </div>
+            </div>
+            <div class="flex items-center justify-between container mx-auto p-4 mt-2 bg-slate-200">
+                <img class="h-24" src="/tarif1.png" alt="">
+                <p>Тариф «Секвойя» | 200 Мбит/с + ТВ</p>
+                <div class="flex gap-12">
+                    <div class="flex justify-center items-center">
+                        <input type="number" class="w-12" value="1">
+                    </div>
+                    <div class="flex gap-4 items-center justify-center">
+                        1200 руб.
+                        <svg class="h-6 hover:cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><path d="M21 6h-5V4.3A2.4 2.4 0 0013.5 2h-3A2.4 2.4 0 008 4.3V6H3a1 1 0 100 2h1v11a3 3 0 003 3h10a3 3 0 003-3V8h1a1 1 0 100-2zM10 4.3c0-.1.2-.3.5-.3h3c.3 0 .5.2.5.3V6h-4V4.3zM18 19a1 1 0 01-1 1H7a1 1 0 01-1-1V8h12v11z"></path></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto flex flex-col gap-2 items-end">
+                <div class="flex gap-2 items-center justify-end">
+                    <h2 class="font-bold text-xl mr-2 py-4">Итого
+                    </h2>
+                    <p class="font-semibold text-xl">1200p.</p>
+                </div>
+                <button id="forward_switch_stage" class="transition-colors py-2 px-4 border border-transparent bg-orange-600 text-white hover:border-black hover:bg-transparent hover:text-black hover:cursor-pointer">
+                    Продолжить
+                </button>
+            </div>
+        </div>
+    </section>
+        <section>
+            <div id="second_stage" class="hidden container mx-auto grid place-content-center">
+                <form action="" class="flex flex-col gap-4 p-4 max-w-[500px]">
+                    <input type="text" name="name"  required placeholder="Имя">
+                    <input type="text" name="address"  required placeholder="Адрес">
+                    <input type="text" name="phone"  required placeholder="Контактный телефон">
+                    <input type="email" name="email"  required placeholder="E-mail">
+                    <textarea name="comment" placeholder="Комментарии"></textarea>
+                    <input type="text" class="hidden" name="id" placeholder="">
+                    <label class="flex gap-4 items-center justify-center select-none hover:cursor-pointer">
+                        <input type="checkbox" required>
+                        <p>Нажимая кнопку отправить вы соглашаетесь на обработку Ваших персональных данных.</p>
+                    </label>
+                    <div class="flex gap-12 justify-center">
+                        <button type="button" id="go_prev_stage">Назад</button>
+                        <button type="submit" class="border px-4 py-2 border-[rgba(0,0,0,0.4)] hover:cursor-pointer hover:bg-orange-600 hover:text-white hover:border-transparent">Отправить заказ</button></div>
+                </form>
+            </div>
+        </section>
+    
+    <script is:inline>
+        const first_stage = document.querySelector("#first_stage")
+        const forward_switch_stage = document.querySelector('#forward_switch_stage')
+        const second_stage = document.querySelector("#second_stage")
+        const go_prev_stage = document.querySelector("#go_prev_stage")
+        const contacts = document.querySelector("#contacts")
+        const korzina = document.querySelector('#korzina')
+
+        go_prev_stage.addEventListener('click', () => {
+            first_stage.classList.remove('hidden')
+            second_stage.classList.add('hidden')
+            contacts.classList.add('opacity-45')
+            korzina.classList.remove('opacity-45')
+        })
+
+        forward_switch_stage?.addEventListener('click', () => {
+            first_stage?.classList.add('hidden')
+            second_stage?.classList.remove('hidden')
+            contacts.classList.remove('opacity-45')
+            korzina.classList.add('opacity-45')
+
+        })
+    </script>
+</main>
+</Layout>
